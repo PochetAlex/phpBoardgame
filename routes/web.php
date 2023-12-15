@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [JeuxController::class, 'testApi'])->name('testApi');
+Route::get('/', [JeuxController::class, 'vue_tableau_jeux'])->name('index');
