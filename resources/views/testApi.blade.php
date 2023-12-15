@@ -23,13 +23,25 @@
         <tr>
             <td>ID</td>
             <td>name</td>
+            <td>description</td>
+            <td>price</td>
+            <td>number_gamer</td>
+            <td>playing_time</td>
+            <td>complexity</td>
+            <td>rating</td>
         </tr>
         </thead>
         <tbody>
         @foreach($jeux as $jeu)
             <tr>
-                <td>{{$jeu->id}}</td>
-                <td>{{$jeu->name}}</td>
+                <td>{{$jeu["id"]}}</td>
+                <td>{{$jeu["name"]}}</td>
+                <td>{{$jeu["description"]}}</td>
+                <td>{{$jeu["price"]}}</td>
+                <td>{{$jeu["number_gamer"]}}</td>
+                <td>{{$jeu["playing_time"]}}</td>
+                <td>{{$jeu["complexity"]}}</td>
+                <td>{{$jeu["rating"]}}</td>
             </tr>
 
         @endforeach
