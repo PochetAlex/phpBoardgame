@@ -33,7 +33,7 @@
 <h2>Ajouter un nouveau jeu</h2>
 <form method="POST" action="{{ route('addGame') }}">
     @csrf
-    <label for="name">Nom du jeu:</label>
+    <label for="name">*Nom du jeu:</label>
     <input type="text" id="name" name="name"><br><br>
 
     <label for="price">Prix:</label>
@@ -54,7 +54,7 @@
     <label for="published_date">Date de publication:</label>
     <input type="text" id="published_date" name="published_date"><br><br>
 
-    <label for="description">Description:</label><br>
+    <label for="description">*Description:</label><br>
     <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
 
     <button type="submit">Ajouter le jeu</button>
