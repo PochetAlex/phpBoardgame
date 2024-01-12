@@ -25,11 +25,6 @@
 
 <h2>La liste des jeux</h2>
 
-<form method="GET" action="{{ route('filterGames') }}">
-    @csrf
-    <button type="submit">Afficher les jeux contenant uniquement un "a"</button>
-</form>
-
 <h2>Ajouter un nouveau jeu</h2>
 <form method="POST" action="{{ route('addGame') }}">
     @csrf
