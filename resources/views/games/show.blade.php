@@ -11,14 +11,13 @@
         @endif
         <li>Catégorie: {{ $game['category'] ?? 'Catégorie non disponible' }}</li>
         @if(isset($game['video']))
-            <li>Vidéo:</li>
+            <li>Vidéo :</li>
             <video controls width="400">
                 <source src="{{ $game['video'] }}" type="video/mp4">
-                <!-- Ajoutez d'autres sources vidéo pour différents formats si nécessaire -->
                 Votre navigateur ne supporte pas la lecture de vidéos.
             </video>
         @else
-            <li>Vidéo: Vidéo non disponible</li>
+            <li>Vidéo : Vidéo non disponible</li>
         @endif
         <li>Nombre de joueurs: {{ $game['number_gamer'] ?? 'Nombre de joueurs non disponible' }}</li>
         <li>Temps de jeu: {{ $game['playing_time'] ?? 'Temps de jeu non disponible' }}</li>
@@ -28,9 +27,20 @@
         <li>Date de publication: {{ $game['published_date'] ?? 'Date de publication non disponible' }}</li>
         <li>Classement: {{ $game['rank'] ?? 'Classement non disponible' }}</li>
     </ul>
-    <form id="deleteForm" method="POST" action="{{ route('deleteGame', ['id' => $game['id']]) }}">
-        @csrf
-        @method('DELETE')
-        <button type="button" onclick="confirmDelete()">Supprimer ce jeu</button>
-    </form>
+    <div>
+        @if($action == 'delete')
+            <form action="{{route('games.destroy',$game["id"])}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <div class="text-center">
+                    <button type="submit" name="delete" value="valide" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Valide</button>
+                    <button type="submit" name="delete" value="annule" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 ml-2">Annule</button>
+                </div>
+            </form>
+        @else
+            <div>
+                <a href="{{route('games.index')}}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Retour à la liste</a>
+            </div>
+        @endif
+    </div>
 </x-layout>
