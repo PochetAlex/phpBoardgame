@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\JeuxController;
+use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [JeuxController::class, 'vue_tableau_jeux'])->name('index');
+Route::get('/', function () {
+    return redirect()->route('games.index');
+});
 
-Route::post('/addGame', [JeuxController::class, 'addGame'])->name('addGame');
-
-Route::get('/game/{id}', [JeuxController::class, 'showGame'])->name('showGame');
-
-Route::delete('/jeux/{id}/delete', [JeuxController::class, 'deleteGame'])->name('deleteGame');
+Route::resource('games', GameController::class);
